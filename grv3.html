@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .container {
+            max-width: 2800px;
+            margin: 0 auto;
+            padding: 0 95px;
+        }
+
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 40px;
+        }
+
+        .grid-item {
+            background-color: whitesmoke;
+            border: 1px solid #ccc;
+            padding: 40px;
+            font-size: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+ 
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 50%;
+            max-width: 500px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Gallery</h1>
+        <h2>Published by Azimenur Yýldýz on December 8 2022</h2>
+        <div class="grid-container">
+            <div class="grid-item" onclick="openModal('foto1.jpg')">foto1.jpg</div>
+            <div class="grid-item" onclick="openModal('foto2.jpg')">fotograf 2</div>
+            <div class="grid-item" onclick="openModal('foto3.jpg')">fotograf 3</div>
+            <div class="grid-item" onclick="openModal('foto4.jpg')">fotograf 4</div>
+            <div class="grid-item" onclick="openModal('foto5.jpg')">fotograf 5</div>
+            <div class="grid-item" onclick="openModal('foto6.jpg')">fotograf 6</div>
+            <div class="grid-item" onclick="openModal('foto7.jpg')">fotograf 7</div>
+            <div class="grid-item" onclick="openModal('foto8.jpg')">fotograf 8</div>
+            <div class="grid-item" onclick="openModal('foto9.jpg')">fotograf 9</div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function openModal(src, alt) {
+            document.getElementById('myModal').style.display = "block";
+            document.getElementById('modal-image').src = src;
+            document.getElementById('caption').innerHTML = alt;
+        }
+
+        document.getElementById('myModal').addEventListener('click', function(event) {
+            if (event.target == this) {
+                this.style.display = 'none';
+            }
+        });
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                document.getElementById('myModal').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
